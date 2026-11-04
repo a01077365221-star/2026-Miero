@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미에로 화이버 적응형웹 구현</title>
+
+  <!-- css 초기화 -->
+  <link rel="stylesheet" href="./css/reset.css" type="text/css">
+
+  <!-- 기본 서식 -->
+  <link rel="stylesheet" href="./css/base.css">
+
+  <!-- 공통서식 - 헤더, 푸터 -->
+  <link rel="stylesheet" href="./css/common.css">
+
+  <!-- 메인콘텐츠 서식 -->
+  <link rel="stylesheet" href="./css/main.css">
+
+  <!-- 폰트어썸 아이콘 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+  <!-- 그리드 레이아웃 -->
+  <link href="../1001_HTML5_CSS3/실습예제-미에로화이바/미에로화이바.css" rel="stylesheet" type="text/css">
+
+<!-- 자바스크립트 사용자가 디바이스 환경 체크하여 모바일 사용자일 경우 모바일 index.html페이지가 나오게 하기 -->
+  <script>
+// 배열 객체를 사용하여 사용자의 디바이스 목록을 작성한다.
+let mobile = ['Android', 'iPhone', 'iPad', 'SAMSUNG', 'BlackBerry', 'Window Phone', 'Window CE', 'MOT', 'SonyEricsson', 'Nokia'];
+
+
+  //만약 모바일 버전에서 사용자가 'pc버전보기' 클릭시 해당 주소에 
+  //move_pc_screen=1 값을 전달한다면 null값으로 설정하여 모바일 페이지로 접속하지 않도록 합니다.
+  if(document.URL.match('move_pc_screen=1')) mobile = null; 
+  
+//만약 위 배열값 개수만큼 반복하여 사용자가 접속한 스마트폰의 기종 종류를 체크하여 해당 값이 존재한다면 아래 내용을 실행한다.
+for(let i in mobile){//in 키워드 값이 있으면 true, 없으면 false
+if(navigator.userActivation.match(mobile[i]) !=null){
+  //일치하는 값이 있다면
+  location.href='http://heoyujeong.dothome.co.kr/miero/m/index.html';
+  break; //종료하기
+}
+
+  }
+
+
+  </script>
+</head>
+
+<body>
+
+  <!-- 상단 헤더영역 -->
+  <header>
+    <h1>
+      <a href="index.html">
+        <img src="./images/logo2.png" alt="상단 로고">
+      </a>
+    </h1>
+
+    <!-- 메인메뉴 -->
+    <nav class="gnb">
+      <ul>
+        <li>
+          <a href="#" title="미에로">미에로<i class="fas fa-angle-down"></i></a>
+          <ul class="sub">
+            <li><a href="#" title="브랜드 스토리">브랜드 스토리</a></li>
+            <li><a href="#" title="식이섬유 스토리">식이섬유 스토리</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#" title="제품소개">제품소개<i class="fas fa-angle-down"></i></a>
+          <ul class="sub">
+            <li><a href="#" title="미에로화이바">미에로화이바</a></li>
+            <li><a href="#" title="미에로화이바 스파클링 제로">미에로화이바 SPARKLING ZERO SUGAR</a></li>
+            <li><a href="#" title="헬씨올리고">헬씨올리고</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#" title="미에로 스토리">미에로 스토리<i class="fas fa-angle-down"></i></a>
+          <ul class="sub">
+            <li><a href="#" title="TV광고">TV광고</a></li>
+            <li><a href="#" title="인쇄광고">인쇄광고</a></li>
+            <li><a href="#" title="프로모션">프로모션</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#" title="미에로 이벤트">미에로 이벤트<i class="fas fa-angle-down"></i></a>
+          <ul class="sub">
+            <li><a href="#" title="진행중 이벤트">진행중 이벤트</a></li>
+            <li><a href="#" title="당첨자 발표">당첨자 발표</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="https://heoyujeong.dothome.co.kr/board/bbs/board.php?bo_table=event" title="공지사항">공지사항</a>
+        </li>
+
+        <li>
+          <a href="#" title="공식쇼핑몰"><i class="fa-solid fa-bag-shopping"></i>공식쇼핑몰</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- 메인 콘텐츠 영역 시작 -->
+  <main>
+
+    <!-- 메인 슬라이드 시작 -->
+    <section id="mslide">
+      <h2>1. 메인 슬라이드</h2>
+
+      <article id="visual_slide">
+        <div><img src="./images/visual0.png" alt="슬라이드0"></div>
+
+        <div>
+          <span>톡 쏘는 식이섬유<br>미에로 화이바 스파클링 제로</span>
+          <img src="./images/visual01.jpg" alt="슬라이드1">
+        </div>
+
+        <div>
+          <span>마시는 식이섬유<br>미에로화이바</span>
+          <img src="./images/visual02.jpg" alt="슬라이드2">
+        </div>
+
+        <div>
+          <span>헬씨올리고<br>프리바이오틱스<br>스파클링</span>
+          <img src="./images/visual03.jpg" alt="슬라이드3">
+        </div>
+
+        <!-- 좌우버튼 -->
+        <ul class="s_btn">
+          <li><img src="./images/left.png" alt=""></li>
+          <li><img src="./images/right.png" alt=""></li>
+        </ul>
+
+        <!-- 오른쪽 컨트롤 버튼 -->
+        <ul class="ctrl_btn">
+          <li class="on">&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+        </ul>
+      </article>
+    </section>
+
+
+    <!-- 뉴스 콘텐츠 & 유튜브 영역 -->
+    <section id="news_con">
+
+      <article class="c_title">
+        <h2>
+          <span>마시는 식이섬유</span>
+          미에로화이바
+        </h2>
+
+        <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/DPKON-EzD1U?si=Qxw2nqOm63xut5_-&amp;controls=0"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </article>
+
+      <article class="c_title">
+        <h2>
+          <span>미에로의 새로운 소식을 알려드립니다.</span>
+          미에로화이바 News
+        </h2>
+
+        <ul>
+          <li><i class="far fa-circle"></i><a href="#">현대약품, 미에로화이바 브랜드 최초 아이돌 보이 그룹 ‘TWS(투어스)’ 발탁♥</a></li>
+          <li><i class="far fa-circle"></i><a href="#">미에로화이바 스파클링 제로 500ml 캔 100만개 돌파♥</a></li>
+          <li><i class="far fa-circle"></i><a href="#">현대약품, 진한 액상 스틱형 타입 식이섬유 출시♥</a></li>
+          <li><i class="far fa-circle"></i><a href="#">수분 감성 드링크 미에로화이바 솔트레몬 출시♥</a></li>
+        </ul>
+      </article>
+
+    </section>
+
+
+    <!-- 탭콘텐츠 영역 -->
+    <section id="tab_con">
+      <article class="tcon">
+        <h2>당신이 몰랐던 식이섬유</h2>
+
+        <ul>
+          <li>
+            <a href="#" title="" class="t_on">식이섬유란?</a>
+            <div class="cont">
+              <p>
+                <span>식이섬유란?</span>
+                사람의 소화효소로 분해되지 않는 성분, 몸 속의 과다한 양분흡수를 막아주고, 장의 리듬을 조절하며,음식물이 장 속에 머무는 시간을 단축시키는 등 현대 식생활에 꼭 필요한 물질로 제 7의 영양소로 주목 받고 있음<br>
+                ※ 출처 : 파워푸드 슈퍼푸드 사전
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a href="#" title="식이섬유 기능">식이섬유 기능</a>
+            <div class="cont">
+              <span>식이섬유의 기능</span>
+              <ol>
+                <li>1.배설활동 촉진, 변비 예방</li>
+                <li>2.대사질환에 효과적</li>
+                <li>3.콜레스테롤 감소</li>
+              </ol>
+            </div>
+          </li>
+
+          <li>
+            <a href="#" title="식이섬유를 섭취하려면?">식이섬유를 섭취하려면?</a>
+            <div class="cont">
+              <span>식이섬유를 섭취하려면?</span>
+              <img src="./images/mcon2_8.png" alt=""><br>
+              <img src="./images/mcon2_9.png" alt=""><br>
+              <img src="./images/mcon2_10.png" alt="">
+            </div>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+
+    <!-- 제품 소개 영역 -->
+    <section id="product">
+      <article>
+        <h2>Miero Fiber</h2>
+
+        <ul>
+          <li>
+            <img src="./images/mcon3_2.png" alt="">
+            <h3>미에로 화이바</h3>
+            <p>식이섬유가 함유된 몸매관리에 도움을 주는 국민 식이섬유 음료</p>
+          </li>
+
+          <li>
+            <img src="./images/mcon3_3.png" alt="">
+            <h3>미에로 화이바<br>SPARKLING ZERO SUGAR</h3>
+            <p>미에로화이바의 맛과 식이섬유는 그대로! 당류는 ZERO! 탄산으로 짜릿하게 즐기는 미에로화이바</p>
+          </li>
+
+          <li>
+            <img src="./images/mcon3_5.png" alt="">
+            <h3>헬씨올리고</h3>
+            <p>올리고당을 함유하고 있어, 내 몸속의 비피더스 균을 직접 키워주는 장 건강 지킴이</p>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+
+    <!-- 이벤트 영역 -->
+    <section id="event">
+      <h2>5. 이벤트</h2>
+
+      <ul class="e_btn">
+        <li><i class="fas fa-angle-left"></i></li>
+        <li><i class="fas fa-angle-right"></i></li>
+      </ul>
+    </section>
+
+
+    <!-- 갤러리 영역 -->
+    <section id="gallery">
+      <h2>6. 갤러리</h2>
+
+      <section id="story">
+        <article>
+          <h2>미에로화이바 Girl스토리</h2>
+
+          <div class="girl">
+
+            <figure>
+              <a href="#" title="">
+                <img src="../1001_HTML5_CSS3/실습예제-미에로화이바/images/mcon5_1.jpg" alt="이미지1">
+                <figcaption>
+                  <h3>제목</h3>
+                  <p>년도</p>
+                  <span>영상보기</span>
+                </figcaption>
+              </a>
+            </figure>
+
+            <figure>
+              <a href="#" title="">
+                <img src="../1001_HTML5_CSS3/실습예제-미에로화이바/images/mcon5_2.jpg" alt="이미지1">
+                <figcaption>
+                  <h3>제목</h3>
+                  <p>년도</p>
+                  <span>영상보기</span>
+                </figcaption>
+              </a>
+            </figure>
+
+            <figure>
+              <a href="#" title="">
+                <img src="../1001_HTML5_CSS3/실습예제-미에로화이바/images/mcon5_4.jpg" alt="이미지">
+                <figcaption>
+                  <h3>제목</h3>
+                  <p>년도</p>
+                  <span>영상보기</span>
+                </figcaption>
+              </a>
+            </figure>
+
+            <figure>
+              <a href="#" title="">
+                <img src="../1001_HTML5_CSS3/실습예제-미에로화이바/images/mcon5_3.jpg" alt="이미지1">
+                <figcaption>
+                  <h3>제목</h3>
+                  <p>년도</p>
+                  <span>영상보기</span>
+                </figcaption>
+              </a>
+            </figure>
+
+            <figure>
+              <a href="#" title="">
+                <img src="../1001_HTML5_CSS3/실습예제-미에로화이바/images/mcon5_10.png" alt="이미지1">
+                <figcaption>
+                  <h3>제목</h3>
+                  <p>년도</p>
+                  <span>영상보기</span>
+                </figcaption>
+              </a>
+            </figure>
+
+            <figure>
+              <a href="#" title="">
+                <img src="../1001_HTML5_CSS3/실습예제-미에로화이바/images/mcon5_11.png" alt="이미지1">
+                <figcaption>
+                  <h3>제목</h3>
+                  <p>년도</p>
+                  <span>영상보기</span>
+                </figcaption>
+              </a>
+            </figure>
+
+            <figure>
+              <a href="#" title="">
+                <img src="../1001_HTML5_CSS3/실습예제-미에로화이바/images/mcon5_9.jpg" alt="이미지1">
+                <figcaption>
+                  <h3>제목</h3>
+                  <p>년도</p>
+                  <span>영상보기</span>
+                </figcaption>
+              </a>
+            </figure>
+
+            <figure>
+              <a href="#" title="">
+                <img src="../1001_HTML5_CSS3/실습예제-미에로화이바/images/mcon5_8.jpg" alt="이미지1">
+                <figcaption>
+                  <h3>제목</h3>
+                  <p>년도</p>
+                  <span>영상보기</span>
+                </figcaption>
+              </a>
+            </figure>
+
+          </div>
+        </article>
+
+        <div class="m_box">
+          <a href="#" title="더보기">더보기</a>
+        </div>
+
+        <div id="list"></div>
+      </section>
+    </section>
+
+  </main>
+
+
+  <!-- 푸터영역 시작 -->
+  <footer>
+    <div class="f_inner">
+      <nav>
+
+        <dl>
+          <dt><a href="" title="">미에로</a></dt>
+          <dd><a href="" title="브랜드 스토리">브랜드 스토리</a></dd>
+          <dd><a href="" title="식이섬유 스토리">식이섬유 스토리</a></dd>
+        </dl>
+
+        <dl>
+          <dt><a href="" title="제품소개">제품소개</a></dt>
+          <dd><a href="" title="미에로화이바">미에로화이바</a></dd>
+          <dd><a href="" title="미에로화이바">미에로화이바 SPARKLING ZERO SUGAR</a></dd>
+          <dd><a href="" title="헬씨올리고">헬씨올리고</a></dd>
+        </dl>
+
+        <dl>
+          <dt><a href="" title="미에로 스토리">미에로 스토리</a></dt>
+          <dd><a href="" title="TV광고">TV광고</a></dd>
+          <dd><a href="" title="인쇄광고">인쇄광고</a></dd>
+          <dd><a href="" title="프로모션">프로모션</a></dd>
+        </dl>
+
+        <dl>
+          <dt><a href="" title="미에로 이벤트">미에로 이벤트</a></dt>
+          <dd><a href="" title="진행중인 이벤트">진행중인 이벤트</a></dd>
+          <dd><a href="" title="당첨자 발표">당첨자 발표</a></dd>
+        </dl>
+
+        <!-- 공지사항 링크 연결 -->
+        <dl>
+          <dt>
+            <a href="https://heoyujeong.dothome.co.kr/board/bbs/board.php?bo_table=event" title="공지사항">공지사항</a>
+          </dt>
+          <dd>
+            <a href="https://heoyujeong.dothome.co.kr/board/bbs/board.php?bo_table=event" title="공지사항">News&Notice</a>
+          </dd>
+        </dl>
+
+        <dl>
+          <dt><a href="" title="현대약품">현대약품</a></dt>
+          <dd>&nbsp;</dd>
+        </dl>
+
+        <dl>
+          <dt>Connect with us</dt>
+          <dd>
+            <a href="" title="페이스북"><i class="fab fa-facebook-f"></i></a>
+            <a href="" title="인스타그램"><i class="fab fa-instagram"></i></a>
+            <a href="" title="유튜브"><i class="fab fa-youtube"></i></a>
+          </dd>
+        </dl>
+
+      </nav>
+    </div>
+
+    <a href="#" title="" class="top_btn">
+      <img src="./images/top_up.png" alt="위로 바로가기">
+    </a>
+
+    <address>
+      <h2>
+        <a href="index.html" title="메인페이지로 바로가기">
+          <img src="./images/logo2.png" alt="하단로고">
+        </a>
+      </h2>
+      <p>Copyright&copy;2026 MIERO FIBER. ALL Rights Reserved.</p>
+    </address>
+  </footer>
+
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <!-- 공통 스크립트 -->
+  <script src="./script/common.js"></script>
+
+  <!-- 메인 스크립트 -->
+  <script src="./script/main.js"></script>
+
+  <script>
+    $(document).ready(function(){
+
+      // 1. 변수선언
+      const more_btn = $('#gallery .m_box a'); // 더보기 버튼
+
+      more_btn.click(function(e){
+
+        alert('더보기 버튼 클릭');
+
+        e.preventDefault();
+
+        $.ajax({
+          url: './data/g_data.json',
+          type: 'get',
+          dataType: 'json',
+
+          success: function(result){
+
+            let t = '<ul>';
+
+            $.each(result.product, function(i, e){
+              t += "<li><img src='./images/" + e.path + "' alt='" + e.titl + "'></li>";
+            });
+
+            t += '</ul>';
+
+            // 아이디 #list 영역 안에 t변수값을 삽입합니다.
+            $('#list').html(t);
+          }
+        });
+
+        // 더보기 버튼을 클릭하고 이미지 목록이 추가되었다면 버튼은 안보이게 숨기기
+        $(this).hide();
+
+        return false;
+      });
+
+    });
+  </script>
+
+</body>
+</html>

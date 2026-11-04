@@ -1,0 +1,387 @@
+
+@charset "utf-8";
+
+/* 메인 공통 */
+main {
+    width: 100%;
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+/* 메인 슬라이드 영역 */
+#mslide {
+    position: relative;
+    height: 100vh;
+}
+
+#mslide h2 {
+    display: none;
+}
+
+/* 슬라이드 전체 영역 */
+#visual_slide {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+}
+
+/* 슬라이드 이미지 영역 공통 */
+#visual_slide > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+/* 현재 보여지는 슬라이드 */
+#visual_slide > div.slide_active {
+    opacity: 1;
+    z-index: 5;
+}
+
+/* 슬라이드 이미지 */
+#visual_slide > div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+}
+
+/* 슬라이드 글자 */
+#visual_slide span {
+    position: absolute;
+    z-index: 10;
+    font-size: 50px;
+    color: var(--f_color02);
+    font-weight: bold;
+    line-height: 60px;
+    text-shadow: 0px 0px 4px #ccc;
+    top: 280px;
+    left: 3%;
+}
+
+/* 좌우 버튼 서식 */
+.s_btn {
+    position: absolute;
+    left: 3%;
+    top: 80%;
+    display: flex;
+    z-index: 200;
+    justify-content: space-around;
+}
+
+.s_btn li {
+    background: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+    padding: 5px 5px;
+}
+
+.s_btn img {
+    width: 50px;
+}
+
+/* 컨트롤 버튼 서식 */
+#visual_slide .ctrl_btn {
+    position: absolute;
+    right: 1.5%;
+    top: 45%;
+    z-index: 201;
+}
+
+#visual_slide .ctrl_btn li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--f_color02);
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* 현재 선택된 컨트롤 버튼 */
+.on {
+    background-color: var(--bg_color01) !important;
+}
+
+/* 뉴스콘텐츠 영역 서식 */
+#news_con {
+    width: 1070px;
+    margin: var(--m_auto);
+    display: flex;
+    padding: 100px 0;
+    box-sizing: border-box;
+    gap: 30px;
+}
+
+/* 뉴스 제목 공통 */
+#news_con .c_title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 왼쪽 영상 영역 */
+#news_con article:first-child {
+    width: 635px;
+    flex-shrink: 0;
+}
+
+/* 오른쪽 뉴스 영역 */
+#news_con article:last-child {
+    width: 405px;
+    padding-left: 0;
+}
+
+/* 제목 위쪽 작은 글씨 */
+#news_con .c_title > h2 > span {
+    font-size: 16px;
+    display: block;
+    font-weight: normal;
+}
+
+/* 큰 제목 */
+article > h2 {
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    white-space: nowrap;
+}
+
+/* 유튜브 영상 */
+#news_con article iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: none;
+}
+
+/* 뉴스 목록 */
+#news_con ul > li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 30px;
+}
+
+/* 뉴스 아이콘 */
+#news_con ul > li > i {
+    color: var(--bg_color01);
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+/* 뉴스 링크 */
+#news_con ul > li > a {
+    font-size: var(--f_size01);
+    line-height: 190%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#news_con ul > li > a:hover{
+    text-decoration: underline;
+}
+
+/* 탭콘텐츠서식 */
+#tab_con{
+    background-color: #e6e6e6;
+}
+
+/* 탭콘텐츠는 가로*세로 고정 */
+.tcon{
+    width: 1200px;
+    height: 600px;
+    margin: var(--m_auto);
+    background-image: url(../images/mcon2_7.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+    overflow: hidden;
+    padding: 50px 0px;
+}
+
+
+.tcon ul{
+    width: 650px;
+    padding-top: 30px;
+    display: flex;
+    position: relative; /* cont의 기준 */
+}
+.tcon ul > li{
+    margin-right: 10px;
+}
+.tcon ul > li > a{
+    background-color: var(--bg_color02);
+    color: var(--f_color02);
+    padding: 10px 25px;
+    font-size: var(--f_size03); /* 17 */
+}
+
+.t_on{
+    background: var(--bg_color01) !important;
+}
+
+
+.tcon ul > li > .cont{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 80px; left: 0px;
+    line-height: 200%;
+    padding: 10px;
+    color: var(--bg_color02);
+    font-size: var(--f_size02);
+    display: none;
+}
+
+.tcon ul > li > .cont span{
+    font-size: 22px;
+    display: block;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.tcon ul > li > .cont img{
+    width: 600px;
+}
+
+/* 이벤트 버튼 */
+.e_btn {
+    position: absolute;
+    left: 3%;
+    display: flex;
+    z-index: 100;
+}
+
+.e_btn li {
+    background-color: #efefef;
+    padding: 12px 6px;
+    margin-right: 10px;
+}
+
+.e_btn li:hover {
+    cursor: pointer;
+}
+
+.e_btn li i {
+    font-size: 30px;
+}
+
+/* 콘텐츠 공통 레이아웃 */
+#tab_con,
+#product,
+#event {
+    padding: 30px 0px;
+}
+
+/* 갤러리 영역 */
+#story {
+    background-color: #f36f21;
+    text-align: center;
+    padding: 50px 0;
+}
+
+#story > article > h2 {
+    color: #fff;
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+/* 더보기 버튼 */
+#story .m_box {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#story .m_box a {
+    display: inline-block;
+    background: #fff;
+    color: #333;
+    padding: 10px 25px;
+    font-size: 13px;
+    border: 1px solid #ddd;
+}
+
+/* 메인 슬라이드 article 표시 */
+#mslide article {
+    display: none;
+}
+
+#mslide article:first-of-type {
+    display: block;
+}
+
+/* 갤러리 추가 서식 */
+#list {
+    width: 1200px;
+    margin: 0px auto;
+    text-align: center;
+    overflow: auto;
+}
+
+#list ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#list li {
+    padding: 15px 0px;
+}
+
+#list li img {
+    width: 100%;
+    display: block;
+    float: left;
+}
+
+.tcon ul > li:first-child .cont{
+    display: block;
+}
+
+/* 제품소개 */
+#product{padding: 50px 0px;
+background: var(--bg_color03);
+}
+#prodcut > article{
+    width: var(--base_width);
+    margin: var(--m_auto);
+}
+
+#product > article > ul{
+    display: flex;
+    justify-content: center;
+}
+
+#product > article > ul > li{
+    width: 370px;
+    padding: 0px 20px;
+    text-align: center;
+}
+
+#product > article > ul > li img{
+    width: 80%;
+}
+
+#product > article > ul > li h3{
+    font-size: 24px;
+    height: 50px;
+    font-weight: bold;
+    padding: 16px 0px 10px 0px;
+    text-align: left;
+    border-bottom: 1px solid #986c02;
+}
+#product > article > ul > li p{
+    padding-top: 10px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 180%;
+    color: #986c02;
+}

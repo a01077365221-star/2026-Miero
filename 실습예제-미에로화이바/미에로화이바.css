@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+/* 기본 서식 변수 설정하기 */
+:root{
+  --main_color: #f36f21;
+}
+
+#story{
+  width: 100%;
+  background-color: var(--main_color);
+  padding: 30px 0px;
+}
+
+#story > article{
+  width: 1140px;
+  margin: 0 auto;
+}
+
+/* 제목 서식 */
+#story > article > h2{
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+/* 그리드 레이아웃 */
+.girl{
+  display: grid;
+  grid-gap: 20px;
+  padding: 20px;
+  grid-template-rows: repeat(3, 250px);
+  grid-template-areas:
+  "g01 g03 g04"
+  "g02 g03 g05"
+  "g06 g07 g08";
+}
+
+.girl > figure:first-child{
+  grid-area:g01;
+}
+.girl > figure:nth-child(2){
+  grid-area:g02;
+}
+.girl > figure:nth-child(3){
+  grid-area:g03;
+}
+.girl > figure:nth-child(4){
+  grid-area:g04;
+}
+.girl > figure:nth-child(5){
+  grid-area:g05;
+}
+.girl > figure:nth-child(6){
+  grid-area:g06;
+}
+.girl > figure:nth-child(7){
+  grid-area:g07;
+}
+.girl > figure:last-child{
+  grid-area:g08;
+}
+
+/* 이미지는 영역의 크기에 맞게 알아서 자동조절 */
+img{width: 100%;}
+
+/* 캔셥 서식 */
+figcaption{
+  background-color: black;
+  color: white;
+  height: 80px;
+  position: relative;
+  bottom: -80px;
+  transition: 0.5s;
+  
+}
+
+figure:hover figcaption{
+  bottom: 80px;
+}
+
+.girl > figure{
+  overflow: hidden;
+
+}
+
+figcaption h3{
+  padding: 15px 20px;
+  color: #f36f21;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+figcaption p{
+  padding: 0px 20px;
+}
+
+figcaption span{
+  border: 1px solid white;
+  padding: 5px;
+  float: right;
+  margin: -40px 20px; 
+}
+
+figure img{
+  transition: 0.5s;}
+figure:hover img{
+  transform: scale(1.1);
+}
