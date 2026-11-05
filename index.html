@@ -35,7 +35,7 @@ let mobile = ['Android', 'iPhone', 'iPad', 'SAMSUNG', 'BlackBerry', 'Window Phon
   
 //만약 위 배열값 개수만큼 반복하여 사용자가 접속한 스마트폰의 기종 종류를 체크하여 해당 값이 존재한다면 아래 내용을 실행한다.
 for(let i in mobile){//in 키워드 값이 있으면 true, 없으면 false
-if(navigator.userActivation.match(mobile[i]) !=null){
+if(navigator.userAgent.match(mobile[i]) != null){
   //일치하는 값이 있다면
   location.href='./m/index.html';
   break; //종료하기
