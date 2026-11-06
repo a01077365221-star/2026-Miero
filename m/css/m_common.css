@@ -75,6 +75,7 @@ header > h1 img {
     box-sizing: border-box;
     display: none;
     z-index: 999;
+    box-shadow: 0px 5px 10px rgba(3,3,3,.2);
 }
 
 /* 토글 버튼 클릭 시 메뉴 나타내기 */
@@ -85,7 +86,7 @@ header > h1 img {
 .gnb > ul {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 /* 메인 메뉴 항목 */
@@ -132,8 +133,9 @@ header > h1 img {
 
 /* 공식쇼핑몰 마우스 오버 */
 .gnb > ul > li:last-child > a:hover {
-    background: #d95d16;
-    color: #fff;
+    background: var(--bg_color02) !important;
+    color: var(--bg_color01) !important;
+    border: none !important;
 }
 
 /* 쇼핑백 아이콘 */
@@ -152,21 +154,21 @@ header > h1 img {
 }
 
 .sub > li {
-    text-align: left;
+    text-align: center; 
 }
 
 .sub > li > a {
     color: var(--f_color01);
     line-height: 36px;
     display: block;
-    padding-left: 8%;
+    /* padding-left: 8%; */
     transition: 0.3s;
 }
 
-.sub > li > a:hover {
+/* .sub > li > a:hover {
     background-color: var(--bg_color01);
     color: var(--f_color02);
-}
+} */
 
 /* 하단 푸터 영역 */
 footer {
@@ -301,4 +303,18 @@ footer address p {
 /* PC버전 보기 숨기기 */
 footer > .pc_btn {
     display: none;
+}
+
+/* 서브메뉴 활성화 시 표시 */
+.sub.active {
+    display: block !important;
+}
+
+/* 메인메뉴 클릭 시 화살표 아이콘 180도 회전 효과 */
+.gnb > ul > li > a i.fa-angle-down {
+    transition: transform 0.3s ease;
+}
+
+.gnb > ul > li > a.active i.fa-angle-down {
+    transform: rotate(180deg);
 }
